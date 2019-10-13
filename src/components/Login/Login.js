@@ -1,14 +1,8 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Button,
-  View,
-  TextInput,
-  Text,
-  AsyncStorage
-} from "react-native";
+import { StyleSheet, View, TextInput, Text, AsyncStorage } from "react-native";
 import Util from "../Utils/Util";
 import GLOBAL from "../Utils/Globals";
+import ReduxButton from "../GlobalComponents/ReduxButton";
 export default class login extends Component {
   constructor() {
     super();
@@ -81,7 +75,7 @@ export default class login extends Component {
             secureTextEntry={true}
           />
         </View>
-        <Button
+        <ReduxButton
           title="Login"
           onPress={() => {
             this.onPressLogin();

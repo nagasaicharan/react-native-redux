@@ -15,12 +15,7 @@ const BottomNavigation = createBottomTabNavigator(
     Credits: { screen: Credits }
   },
   {
-    swipeEnabled: true,
-    initialRouteName: "Catlog",
-    tabBarOptions: {
-      showIcon: false
-    },
-    lazy: true
+    initialRouteName: "Catlog"
   }
 );
 const loginNavigation = createStackNavigator(
