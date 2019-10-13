@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Shirt 1",
+    "id": 1,
+    "price": 12000,
+    "image": "https://image.flaticon.com/icons/png/512/2100/2100007.png",
+    "description": "Lorem ipsum dolor sit amet, justo mattis. Ultricies elit vel nibh arcu, dignissim eget lectus quam a. Nec blandit, eleifend elementum nunc felis natoque, pede morbi risus vel at tempor mauris, ut at nisi molestie maecenas, eget vel. Accumsan viverra, nam phasellus, sollicitudin lorem aliquam"
+  },
+  {
+    "name": "Shirt 2",
+    "id": 2,
+    "price": 13000,
+    "image": "https://image.flaticon.com/icons/png/512/2100/2100008.png",
+    "description": "Lorem ipsum dolor sit amet, justo mattis. Ultricies elit vel nibh arcu, dignissim eget lectus quam a. Nec blandit, eleifend elementum nunc felis natoque, pede morbi risus vel at tempor mauris, ut at nisi molestie maecenas, eget vel. Accumsan viverra, nam phasellus, sollicitudin lorem aliquam"
+  },
+  {
+    "name": "Shirt 3",
+    "id": 3,
+    "price": 14000,
+    "image": "https://image.flaticon.com/icons/png/512/2100/2100009.png",
+    "description": "Lorem ipsum dolor sit amet, justo mattis. Ultricies elit vel nibh arcu, dignissim eget lectus quam a. Nec blandit, eleifend elementum nunc felis natoque, pede morbi risus vel at tempor mauris, ut at nisi molestie maecenas, eget vel. Accumsan viverra, nam phasellus, sollicitudin lorem aliquam"
+  },
+  {
+    "name": "Shirt 4",
+    "id": 4,
+    "price": 15000,
+    "image": "https://image.flaticon.com/icons/png/512/2100/2100010.png",
+    "description": "Lorem ipsum dolor sit amet, justo mattis. Ultricies elit vel nibh arcu, dignissim eget lectus quam a. Nec blandit, eleifend elementum nunc felis natoque, pede morbi risus vel at tempor mauris, ut at nisi molestie maecenas, eget vel. Accumsan viverra, nam phasellus, sollicitudin lorem aliquam"
+  },
+  {
+    "name": "Shirt 5",
+    "id": 5,
+    "price": 16000,
+    "image": "https://image.flaticon.com/icons/png/512/2100/2100011.png",
+    "description": "Lorem ipsum dolor sit amet, justo mattis. Ultricies elit vel nibh arcu, dignissim eget lectus quam a. Nec blandit, eleifend elementum nunc felis natoque, pede morbi risus vel at tempor mauris, ut at nisi molestie maecenas, eget vel. Accumsan viverra, nam phasellus, sollicitudin lorem aliquam"
+  },
+  {
+    "name": "Shirt 6",
+    "id": 6,
+    "price": 17000,
+    "image": "https://image.flaticon.com/icons/png/512/2100/2100012.png",
+    "description": "Lorem ipsum dolor sit amet, justo mattis. Ultricies elit vel nibh arcu, dignissim eget lectus quam a. Nec blandit, eleifend elementum nunc felis natoque, pede morbi risus vel at tempor mauris, ut at nisi molestie maecenas, eget vel. Accumsan viverra, nam phasellus, sollicitudin lorem aliquam"
+  }
+]

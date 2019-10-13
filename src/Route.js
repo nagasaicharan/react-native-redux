@@ -1,9 +1,32 @@
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import {
+  createStackNavigator,
+  createAppContainer,
+  createBottomTabNavigator
+} from "react-navigation";
 import Login from "./components/Login/Login";
+import Catlog from "./components/Catlog/Catlog.js";
+import Cart from "./components/Cart/Cart";
+import Credits from "./components/Credits/Credits";
 
+const BottomNavigation = createBottomTabNavigator(
+  {
+    Catlog: { screen: Catlog },
+    Cart: { screen: Cart },
+    Credits: { screen: Credits }
+  },
+  {
+    swipeEnabled: true,
+    initialRouteName: "Catlog",
+    tabBarOptions: {
+      showIcon: false
+    },
+    lazy: true
+  }
+);
 const loginNavigation = createStackNavigator(
   {
-    Login: { screen: Login }
+    Login: { screen: Login },
+    BottomNavigation
   },
   {
     headerMode: "none",

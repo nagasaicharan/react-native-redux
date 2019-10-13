@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import { StyleSheet, Button, View, TextInput, Text } from "react-native";
-import Util from "../../Util";
+import {
+  StyleSheet,
+  Button,
+  View,
+  TextInput,
+  Text,
+  AsyncStorage
+} from "react-native";
+import Util from "../Utils/Util";
+import GLOBAL from "../Utils/Globals";
 export default class login extends Component {
   constructor() {
     super();
@@ -10,7 +18,19 @@ export default class login extends Component {
       password: ""
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.checkLogggedIn();
+  }
+  checkLogggedIn = () => {
+    AsyncStorage.getItem(GLOBAL.LOGIN_KEY).then(key => {
+      if (key) {
+        this.navigateToCatlog();
+      }
+    });
+  };
+  navigateToCatlog = () => {
+    this.props.navigation.navigate(GLOBAL.PAGE.CATLOG);
+  };
 
   onPressLogin = () => {
     const { emailId, password } = this.state;
@@ -26,6 +46,13 @@ export default class login extends Component {
     }
     if (emailId === EMAIL_CONSTANT && password === PASSWORD_CONSTANT) {
       Util.showToast("Login Sucessfull");
+      AsyncStorage.setItem(GLOBAL.LOGIN_KEY, "sucess")
+        .then(() => {
+          this.navigateToCatlog();
+        })
+        .catch(error => {
+          Util.showToast(error.toString());
+        });
     } else {
       Util.showToast("Wrong Id and Password");
       return;
@@ -42,7 +69,7 @@ export default class login extends Component {
               this.setState({ emailId });
             }}
             placeholder="Enter Email"
-            autoFocus={true}
+            // autoFocus={true}
           />
         </View>
         <View style={[styles.containerTextInput, { marginVertical: 8 }]}>
