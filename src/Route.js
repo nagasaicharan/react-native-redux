@@ -7,12 +7,16 @@ import Login from "./components/Login/Login";
 import Catlog from "./components/Catlog/Catlog.js";
 import Cart from "./components/Cart/Cart";
 import Credits from "./components/Credits/Credits";
+import Stripe from "./components/StripeAndFont/Stripe";
 
 const BottomNavigation = createBottomTabNavigator(
   {
     Catlog: { screen: Catlog },
     Cart: { screen: Cart },
-    Credits: { screen: Credits }
+    Credits: { screen: Credits },
+    Stripe: {
+      screen: Stripe
+    }
   },
   {
     initialRouteName: "Catlog"

@@ -4,7 +4,8 @@ module.exports = {
     LOGIN: "Login",
     CATLOG: "Catlog",
     CREDITS: "Credits",
-    CART: "Cart"
+    CART: "Cart",
+    STRIPE: "Stripe"
   },
   // login key
   LOGIN_KEY: "isLogin",
