@@ -1,7 +1,7 @@
 const INITIAL_STATE = {};
 
 export const actionTypes = {
-  ADD_CATLOG_ITEMS: "ADD_CATLOG_ITEMS"
+  ADD_CATLOG_ITEMS: 'ADD_CATLOG_ITEMS',
 };
 
 export default (state = INITIAL_STATE, action) => {

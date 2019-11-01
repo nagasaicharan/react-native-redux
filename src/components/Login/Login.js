@@ -1,15 +1,16 @@
-import React, { Component } from "react";
-import { StyleSheet, View, TextInput, Text, AsyncStorage } from "react-native";
-import Util from "../Utils/Util";
-import GLOBAL from "../Utils/Globals";
-import ReduxButton from "../GlobalComponents/ReduxButton";
+import React, {Component} from 'react';
+import {StyleSheet, View, TextInput, Text} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
+import Util from '../Utils/Util';
+import GLOBAL from '../Utils/Globals';
+import ReduxButton from '../GlobalComponents/ReduxButton';
 export default class login extends Component {
   constructor() {
     super();
     this.state = {
       loading: false,
-      emailId: "",
-      password: ""
+      emailId: '',
+      password: '',
     };
   }
   componentDidMount() {
@@ -27,20 +28,20 @@ export default class login extends Component {
   };
 
   onPressLogin = () => {
-    const { emailId, password } = this.state;
-    const EMAIL_CONSTANT = "example@example.com",
-      PASSWORD_CONSTANT = "123456";
+    const {emailId, password} = this.state;
+    const EMAIL_CONSTANT = 'example@example.com',
+      PASSWORD_CONSTANT = '123456';
     if (!emailId) {
-      Util.showToast("Enter Email Id");
+      Util.showToast('Enter Email Id');
       return;
     }
     if (!password) {
-      Util.showToast("Enter password");
+      Util.showToast('Enter password');
       return;
     }
     if (emailId === EMAIL_CONSTANT && password === PASSWORD_CONSTANT) {
-      Util.showToast("Login Sucessfull");
-      AsyncStorage.setItem(GLOBAL.LOGIN_KEY, "sucess")
+      Util.showToast('Login Sucessfull');
+      AsyncStorage.setItem(GLOBAL.LOGIN_KEY, 'sucess')
         .then(() => {
           this.navigateToCatlog();
         })
@@ -48,7 +49,7 @@ export default class login extends Component {
           Util.showToast(error.toString());
         });
     } else {
-      Util.showToast("Wrong Id and Password");
+      Util.showToast('Wrong Id and Password');
       return;
     }
   };
@@ -60,16 +61,16 @@ export default class login extends Component {
         <View style={styles.containerTextInput}>
           <TextInput
             onChangeText={emailId => {
-              this.setState({ emailId });
+              this.setState({emailId});
             }}
             placeholder="Enter Email"
             // autoFocus={true}
           />
         </View>
-        <View style={[styles.containerTextInput, { marginVertical: 8 }]}>
+        <View style={[styles.containerTextInput, {marginVertical: 8}]}>
           <TextInput
             onChangeText={password => {
-              this.setState({ password });
+              this.setState({password});
             }}
             placeholder="Enter Password"
             secureTextEntry={true}
@@ -89,21 +90,21 @@ export default class login extends Component {
 const styles = StyleSheet.create({
   viewContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 15
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 15,
   },
   containerTextInput: {
     borderRadius: 5,
-    borderColor: "black",
-    width: "100%",
+    borderColor: 'black',
+    width: '100%',
     padding: 5,
-    borderWidth: 0.5
+    borderWidth: 0.5,
   },
   textLogin: {
     fontSize: 20,
-    fontWeight: "bold",
-    color: "black",
-    marginBottom: 8
-  }
+    fontWeight: 'bold',
+    color: 'black',
+    marginBottom: 8,
+  },
 });

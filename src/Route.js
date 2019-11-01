@@ -1,36 +1,34 @@
-import {
-  createStackNavigator,
-  createAppContainer,
-  createBottomTabNavigator
-} from "react-navigation";
-import Login from "./components/Login/Login";
-import Catlog from "./components/Catlog/Catlog.js";
-import Cart from "./components/Cart/Cart";
-import Credits from "./components/Credits/Credits";
-import Stripe from "./components/StripeAndFont/Stripe";
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
+import Login from './components/Login/Login';
+import Catlog from './components/Catlog/Catlog.js';
+import Cart from './components/Cart/Cart';
+import Credits from './components/Credits/Credits';
+import Stripe from './components/StripeAndFont/Stripe';
 
 const BottomNavigation = createBottomTabNavigator(
   {
-    Catlog: { screen: Catlog },
-    Cart: { screen: Cart },
-    Credits: { screen: Credits },
+    Catlog: {screen: Catlog},
+    Cart: {screen: Cart},
+    Credits: {screen: Credits},
     Stripe: {
-      screen: Stripe
-    }
+      screen: Stripe,
+    },
   },
   {
-    initialRouteName: "Catlog"
-  }
+    initialRouteName: 'Catlog',
+  },
 );
 const loginNavigation = createStackNavigator(
   {
-    Login: { screen: Login },
-    BottomNavigation
+    Login: {screen: Login},
+    BottomNavigation,
   },
   {
-    headerMode: "none",
-    initialRouteName: "Login"
-  }
+    headerMode: 'none',
+    initialRouteName: 'Login',
+  },
 );
 
 const InitialNav = createAppContainer(loginNavigation);
