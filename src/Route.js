@@ -12,6 +12,7 @@ import Stripe from './components/StripeAndFont/Stripe';
 import FeaturesListScreen from './components/OtherFeatures/FeaturesListScreen';
 import Fonts from './components/OtherFeatures/Fonts';
 import WebView from './components/OtherFeatures/WebView';
+import Network from './components/OtherFeatures/Network';
 const BottomNavigation = createBottomTabNavigator(
   {
     Catlog: {
@@ -54,6 +55,7 @@ const loginNavigation = createStackNavigator(
       screen: Stripe,
     },
     WebView: {screen: WebView},
+    Network: {screen: Network},
     BottomNavigation,
   },
   {
