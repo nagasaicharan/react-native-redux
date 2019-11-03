@@ -9,7 +9,9 @@ import Catlog from './components/Catlog/Catlog.js';
 import Cart from './components/Cart/Cart';
 import Credits from './components/Credits/Credits';
 import Stripe from './components/StripeAndFont/Stripe';
-
+import FeaturesListScreen from './components/OtherFeatures/FeaturesListScreen';
+import Fonts from './components/OtherFeatures/Fonts';
+import WebView from './components/OtherFeatures/WebView';
 const BottomNavigation = createBottomTabNavigator(
   {
     Catlog: {
@@ -17,9 +19,8 @@ const BottomNavigation = createBottomTabNavigator(
     },
     Cart: {screen: Cart},
     Credits: {screen: Credits},
-    Stripe: {
-      screen: Stripe,
-    },
+
+    Features: {screen: FeaturesListScreen},
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -48,6 +49,11 @@ BottomNavigation.navigationOptions;
 const loginNavigation = createStackNavigator(
   {
     Login: {screen: Login},
+    Fonts: {screen: Fonts},
+    Stripe: {
+      screen: Stripe,
+    },
+    WebView: {screen: WebView},
     BottomNavigation,
   },
   {

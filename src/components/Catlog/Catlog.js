@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, FlatList} from 'react-native';
+import {StyleSheet, View, FlatList, Linking} from 'react-native';
 import Util from '../Utils/Util';
 import {connect} from 'react-redux';
 import store from '../Utils/Redux/Store';
@@ -8,12 +8,56 @@ import {actionTypes as cartActionTypes} from '../Utils/Redux/Reducers/CartReduce
 import CatlogItem from './SubComponents/CatlogItem';
 import {bindActionCreators} from 'redux';
 import Title from '../GlobalComponents/Title';
-
+import Firebase from '../Utils/js/Firebase';
+import firebase from 'react-native-firebase';
 const catlogData = require('./Utils/CatlogData.json');
 class Catlog extends Component {
   componentDidMount() {
     this.checkDataAvailable();
+    this.getFirebaseTokenAndIntiliazeListeners();
   }
+  getFirebaseTokenAndIntiliazeListeners = () => {
+    const propw = this.props;
+    Firebase.getFirebaseToken().then(token => {
+      console.log('token: ', token);
+    });
+    //App is closed
+    Firebase.getInitialNotification()
+      .then(notificationData => {
+        console.log('notificationData: ', notificationData);
+        Util.processRouteData(notificationData, propw);
+      })
+      .catch(() => {
+        //App is closed
+        Linking.getInitialURL().then(url => {
+          if (url) {
+            var navData = Util.getNavigationObjectFromUrlParams(url);
+            Util.processRouteData(JSON.parse(navData), propw);
+          } else {
+            Firebase.logError(
+              'sample Error',
+              'No data from notification',
+              'No Url',
+            );
+          }
+        });
+      });
+    //App in foreground
+    Linking.addEventListener('url', url => {
+      var navData = Util.getNavigationObjectFromUrlParams(url.url);
+      Util.processRouteData(JSON.parse(navData), propw);
+    });
+    //App in background
+    firebase.notifications().onNotificationOpened(notification => {
+      // Process your notification as required
+      Util.processRouteData(notification.notification._data, propw);
+    });
+    // app in foreground
+    firebase.notifications().onNotification(notification => {
+      //show your notification as required
+    });
+  };
+
   checkDataAvailable = () => {
     if (Object.keys(this.props.catlog).length === 0) {
       this.loadData();
@@ -44,7 +88,6 @@ class Catlog extends Component {
     );
   };
   render() {
-    console.log('this.props.catlog: ', this.props.catlog);
     return (
       <View style={styles.viewContainer}>
         <Title title="Catlog" />

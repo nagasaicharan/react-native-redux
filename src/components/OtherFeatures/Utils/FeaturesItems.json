@@ -1,0 +1,23 @@
+[
+  {
+    "route": "Stripe",
+    "name": "Stripe Payment"
+  },
+  {
+    "route": "WebView",
+    "name": "WebView"
+  },
+  {
+    "route": "Netwsork",
+    "name": "Network Info"
+  },
+
+  {
+    "route": "Fonts",
+    "name": "Fonts"
+  },
+  {
+    "route": "Maps",
+    "name": "Maps"
+  }
+]

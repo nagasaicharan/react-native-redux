@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, TextInput, Text} from 'react-native';
+import {StyleSheet, View, TextInput, Text, Linking} from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Util from '../Utils/Util';
 import GLOBAL from '../Utils/Globals';
 import ReduxButton from '../GlobalComponents/ReduxButton';
+
 export default class login extends Component {
   constructor() {
     super();
