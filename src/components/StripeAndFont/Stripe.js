@@ -9,7 +9,7 @@ import {
 } from '../Utils/Redux/Reducers/paymentReducer';
 import Title from '../GlobalComponents/Title';
 import Util from '../Utils/Util';
-import {PaymentCardTextField} from 'tipsi-stripe';
+import stripe, {PaymentCardTextField} from 'tipsi-stripe';
 import makePayment from './Util/makePayment';
 import ReduxButton from '../GlobalComponents/ReduxButton';
 import Loader from '../Loader/Loader';
@@ -44,6 +44,39 @@ class Stripe extends Component {
       Util.showToast('Enter Correct Card Deatils');
     }
   };
+  payWithGooglePay = () => {
+    stripe.setOptions({
+      publishableKey: 'pk_test_AK6shSyNneTqIcSh0PUblTLA00VGiE4cZ0',
+      androidPayMode: 'test', // Android only
+    });
+    const options = {
+      total_price: '80.00',
+      currency_code: 'USD',
+      shipping_address_required: false,
+      billing_address_required: true,
+      shipping_countries: ['US', 'CA'],
+      line_items: [
+        {
+          currency_code: 'USD',
+          description: 'Sample Item',
+          total_price: '80.00',
+          unit_price: '80.00',
+          quantity: '1',
+        },
+      ],
+    };
+    stripe.deviceSupportsAndroidPay().then(isdeviceSupportsAndroidPay => {
+      if (isdeviceSupportsAndroidPay) {
+        stripe.canMakeNativePayPayments().then(canMakeNativePayPayments => {
+          if (canMakeNativePayPayments) {
+            stripe.paymentRequestWithAndroidPay(options).then(response => {
+              console.log('paymentRequestWithAndroidPay: ', response);
+            });
+          }
+        });
+      }
+    });
+  };
 
   render() {
     console.log('pending', this.props.pending);
@@ -68,6 +101,14 @@ class Stripe extends Component {
             }}
             style={styles.field}
             onParamsChange={this.handleFieldParamsChange}
+          />
+
+          <ReduxButton
+            title="Pay With Google Pay"
+            style={{marginVertical: 10}}
+            onPress={() => {
+              this.payWithGooglePay();
+            }}
           />
           <ReduxButton
             title="Pay Now"
