@@ -79,6 +79,9 @@ module.exports = {
       message: message,
     });
   },
+  analyticsLogEvent: (event, params) => {
+    firebase.analytics().logEvent(event, params);
+  },
 };
 
 const getFirebaseMessagingPermissions = () => {

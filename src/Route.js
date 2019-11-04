@@ -13,6 +13,7 @@ import FeaturesListScreen from './components/OtherFeatures/FeaturesListScreen';
 import Fonts from './components/OtherFeatures/Fonts';
 import WebView from './components/OtherFeatures/WebView';
 import Network from './components/OtherFeatures/Network';
+import DeepLinking from './components/OtherFeatures/DeepLinking';
 const BottomNavigation = createBottomTabNavigator(
   {
     Catlog: {
@@ -56,6 +57,7 @@ const loginNavigation = createStackNavigator(
     },
     WebView: {screen: WebView},
     Network: {screen: Network},
+    DeepLinking: {screen: DeepLinking},
     BottomNavigation,
   },
   {

@@ -12,4 +12,16 @@ module.exports = {
       propw.navigation.navigate(GLOBAL.PAGE.CATLOG);
     }
   },
+  //getting Query params as JSON object
+  getNavigationObjectFromUrlParams: url => {
+    var params = url.split('?')[1];
+    return (
+      '{"' +
+      decodeURI(params)
+        .replace(/"/g, '\\"')
+        .replace(/&/g, '","')
+        .replace(/=/g, '":"') +
+      '"}'
+    );
+  },
 };

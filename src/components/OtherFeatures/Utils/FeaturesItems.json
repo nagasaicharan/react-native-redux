@@ -17,6 +17,10 @@
     "name": "Fonts"
   },
   {
+    "route": "DeepLinking",
+    "name": "Deep Linking"
+  },
+  {
     "route": "Maps",
     "name": "Maps"
   }
