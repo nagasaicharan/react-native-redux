@@ -21,6 +21,10 @@
     "name": "Deep Linking"
   },
   {
+    "route": "Permissions",
+    "name": "Permissions"
+  },
+  {
     "route": "Maps",
     "name": "Maps"
   }

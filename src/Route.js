@@ -14,6 +14,7 @@ import Fonts from './components/OtherFeatures/Fonts';
 import WebView from './components/OtherFeatures/WebView';
 import Network from './components/OtherFeatures/Network';
 import DeepLinking from './components/OtherFeatures/DeepLinking';
+import Permissions from './components/OtherFeatures/Permissions';
 const BottomNavigation = createBottomTabNavigator(
   {
     Catlog: {
@@ -58,6 +59,7 @@ const loginNavigation = createStackNavigator(
     WebView: {screen: WebView},
     Network: {screen: Network},
     DeepLinking: {screen: DeepLinking},
+    Permissions: {screen: Permissions},
     BottomNavigation,
   },
   {
