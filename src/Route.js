@@ -15,6 +15,7 @@ import WebView from './components/OtherFeatures/WebView';
 import Network from './components/OtherFeatures/Network';
 import DeepLinking from './components/OtherFeatures/DeepLinking';
 import Permissions from './components/OtherFeatures/Permissions';
+import QRCodeScan from './components/OtherFeatures/QRCodeScan';
 const BottomNavigation = createBottomTabNavigator(
   {
     Catlog: {
@@ -60,6 +61,7 @@ const loginNavigation = createStackNavigator(
     Network: {screen: Network},
     DeepLinking: {screen: DeepLinking},
     Permissions: {screen: Permissions},
+    QRCodeScan: {screen: QRCodeScan},
     BottomNavigation,
   },
   {

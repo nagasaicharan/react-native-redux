@@ -25,6 +25,10 @@
     "name": "Permissions"
   },
   {
+    "route": "QRCodeScan",
+    "name": "QRCodeScan"
+  },
+  {
     "route": "Maps",
     "name": "Maps"
   }
